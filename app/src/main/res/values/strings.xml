@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Taschenrechner</string>
+    <string name="edit_header">Divisionsrechner</string>
+    <string name="edit_titleDividend">Dividend:</string>
+    <string name="edit_titleDivisor">Divisor:</string>
+    <string name="numberfield_dividend">0</string>
+    <string name="numberfield_divisor">0</string>
+    <string name="button_dividiere">Dividiere</string>
+    <string name="edit_titleOutput">Output:</string>
+    <string name="numberfield_result">0</string>
+</resources>
