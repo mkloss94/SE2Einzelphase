@@ -32,18 +32,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         result = (TextView) findViewById(R.id.result);
         int newResult = 0;
 
+        String first = num1.getText().toString();
+        String second = num2.getText().toString();
+
+        if(TextUtils.isEmpty(first)){
+            num1.setError("Das Dividenden-Feld darf nicht leer sein!");
+            return;
+        }
+
+        if(TextUtils.isEmpty(second)){
+            num2.setError("Das Divisor-Feld darf nicht leer sein!");
+            return;
+        }
+
         int dividend = Integer.parseInt(num1.getText().toString());
         int divisor = Integer.parseInt(num2.getText().toString());
 
 
 
-        switch (v.getId()){
-            case R.id.button:
-                newResult = dividend / divisor;
-                break;
-            default:
-                break;
-        }
+        newResult = dividend / divisor;
 
         String txt = "Das Ergebnis aus " + dividend + "/" + divisor + " lautet: ";
         result.setText(txt + newResult);
