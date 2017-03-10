@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         num1 = (EditText) findViewById(R.id.numberfieldDividend);
         num2 = (EditText) findViewById(R.id.numberfieldDivisor);
         result = (TextView) findViewById(R.id.result);
-        int newResult = 0; //wird sicherheitshalber mit 0 initialisiert.
+        double newResult = 0.0; //wird sicherheitshalber mit 0 initialisiert.
 
         //Nun werden die Werte der beiden EditText-Felder in die jeweiligen Variablen zugewiesen. (ACHTUNG als String)
         String first = num1.getText().toString();
@@ -67,15 +67,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        //jetzt werden die Strings in Integer umgewandelt und wieder in neue Variablen gespeichert.
-        int dividend = Integer.parseInt(first);
-        int divisor = Integer.parseInt(second);
+        String point = ".";
+
+        //Diese Überprüfungen dienen erneut der Sicherheit, damit der Benutzer nicht nur einen Punkt in das Nummernfeld eingeben kann.
+        if(TextUtils.equals(first, point)){
+            num1.setError("Das Dividenden-Feld muss zusätzlich noch eine Zahl enthalten!");
+            return;
+        }
+
+        if(TextUtils.equals(second, point)){
+            num2.setError("Das Divisor-Feld muss zusätzlich noch eine Zahl enthalten!");
+            return;
+        }
+
+        //jetzt werden die Strings in Double umgewandelt und wieder in neue Variablen gespeichert.
+        double dividend = Double.parseDouble(first);
+        double divisor = Double.parseDouble(second);
 
         /*Überprüfung, ob der Divisor gleich 0 ist....um Fehlerquellen zu reduzieren. Es wird anschließend
         * das TextView Element rot gefärbt und anschließend eine Fehlernachricht ausgegegeben.*/
-        if(divisor == 0){
+        if(divisor == 0.0){
             result.setTextColor(Color.RED);
-            result.setText("Die Division " + dividend +"/0 ist nicht möglich");
+            result.setText("Die Division " + dividend + "/" + divisor + " ist nicht möglich!");
             return;
         } else {
             //hier wird die Farbe wieder gewechselt
@@ -85,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             try {
                 newResult = dividend / divisor;
                 //String für die Ausgabe
-                String txt = "Das Ergebnis aus " + dividend + ":" + divisor + " lautet: ";
+                String txt = "Das Ergebnis aus " + dividend + "/" + divisor + " lautet: ";
                 //Das Result-TextView-Element wird wieder neu beschrieben
                 result.setText(txt + newResult);
             } catch (Exception e){
