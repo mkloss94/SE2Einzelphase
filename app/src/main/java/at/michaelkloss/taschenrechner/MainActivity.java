@@ -1,10 +1,12 @@
 package at.michaelkloss.taschenrechner;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,12 +26,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Der Button wird "geholt" und anschließend ein onClickListener aufgerufen. (Deswegen das Interface View. OnClickListener)
         btnDividieren = (Button) findViewById(R.id.button);
         btnDividieren.setOnClickListener(this);
-
     }
 
     //diese Methode wird durch das Interface bereitgestellt.
     @Override
     public void onClick(View v) {
+
+        /*der InputMethodManager wird dafür verwendet, damit das virtuelle Keyboard am Handy nach Buttonklick
+        * verschwindet, damit man nicht extra den Drilldown Button klicken muss. Dazu wird ein Objekt von der Klasse
+        * InputMethodManager erzeugt und diesem Objekt von der Methode getSystemService der Kontext von der Konstante
+        * zugewiesen.*/
+        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        /*Es wird hier auf die Methode hideSoftInputFromWindow zugegriffen. Wichtig ist, dass man hier überprüft, ob
+        * der getCurrentFocus gleich null ist, dann ergibt es null, sonst wird das Keyboard ausgeblendet. Dies muss
+        * deswegen gemacht werden, da es ja sein kann, dass das Keyboard schon zugeklappt ist und man es wieder zuklappen
+        * will, dann bekommt man eine NullPointerException. Die Konstante zum Schluss in der Parameterliste bedeutet, dass
+         * das Keyboard nicht für immer jetzt versteckt ist, was aber selbstredend ist.*/
+        inputManager.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
 
         //Nun wird der Dividend und der Divisor sowie das Ergebnis geholt.
         num1 = (EditText) findViewById(R.id.numberfieldDividend);
