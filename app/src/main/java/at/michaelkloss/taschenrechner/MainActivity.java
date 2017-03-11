@@ -13,10 +13,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //Die Initialisierungen
-    EditText num1;
-    EditText num2;
-    TextView result;
-    Button btnDividieren;
+    private EditText num1;
+    private EditText num2;
+    private TextView result;
+    private Button btnDividieren;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
