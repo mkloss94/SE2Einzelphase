@@ -25,7 +25,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="@string/edit_header"
-            android:textColor="#3891B2"
+            android:textColor="@color/colorLightBlue"
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,6 +58,8 @@
             android:ems="10"
             android:inputType="numberDecimal"
             android:text="@string/numberfield_divisor"
+            android:backgroundTint="@color/colorLightBlue"
+            android:textCursorDrawable="@drawable/cursor"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toRightOf="@+id/titleDividend"
             app:layout_constraintRight_toRightOf="parent"
@@ -72,6 +74,8 @@
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="@color/colorLightBlue"
+            android:textCursorDrawable="@drawable/cursor"
             android:ems="10"
             android:inputType="numberDecimal"
             android:text="@string/numberfield_dividend"
@@ -88,6 +92,7 @@
             android:layout_marginStart="8dp"
             android:text="@string/edit_titleDivisor"
             android:textSize="16sp"
+            android:textColor="#000000"
             app:layout_constraintBaseline_toBaselineOf="@+id/numberfieldDivisor"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -99,6 +104,7 @@
             android:layout_marginStart="8dp"
             android:text="@string/edit_titleDividend"
             android:textSize="16sp"
+            android:textColor="#000000"
             app:layout_constraintBaseline_toBaselineOf="@+id/numberfieldDividend"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -142,9 +148,9 @@
             android:layout_marginTop="0dp"
             android:gravity="top|center"
             android:text="@string/edit_titleOutput"
+            android:textColor="@color/colorLightBlue"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="#3891B2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
