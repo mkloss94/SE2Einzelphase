@@ -6,7 +6,7 @@
     <string name="numberfield_dividend">0</string>
     <string name="numberfield_divisor">0</string>
     <string name="button_dividiere">Dividiere</string>
-    <string name="edit_titleOutput">-------------------------  Output  -------------------------</string>
+    <string name="edit_titleOutput">--- Output ---</string>
     <string name="numberfield_result">0</string>
     <string name="copyright">Copyright (C) 2017 Michael Kloss</string>
 </resources>
