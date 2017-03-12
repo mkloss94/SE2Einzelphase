@@ -22,7 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //hier wird der EditText geholt und anschließend der Cursor in diesen beim Starten gesetzt.
+        num1 = (EditText) findViewById(R.id.numberfieldDividend);
+        num1.requestFocus();
         //Der Button wird "geholt" und anschließend ein onClickListener aufgerufen. (Deswegen das Interface View. OnClickListener)
         btnDividieren = (Button) findViewById(R.id.button);
         btnDividieren.setOnClickListener(this);
@@ -89,6 +91,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(divisor == 0.0){
             result.setTextColor(Color.RED);
             result.setText("Die Division " + dividend + "/" + divisor + " ist nicht möglich!");
+            /*Dividendenzahl wird anschließend default maessig wieder auf 0 gesetzt und der Fokus wieder auf
+            den ersten EditText hinter der 0 gesetzt. So kann man gleich eine weitere Zahl eingeben */
+            num1.setText(0 + "");
+            num1.requestFocus();
+            num1.setSelection(1);
             return;
         } else {
             //hier wird die Farbe wieder gewechselt
@@ -101,9 +108,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String txt = "Das Ergebnis aus " + dividend + "/" + divisor + " lautet: ";
                 //Das Result-TextView-Element wird wieder neu beschrieben
                 result.setText(txt + newResult);
+                /*hier wird auch wie oben die Dividendenzahl auf 0 gesetzt, auch die Divisorzahl wird
+                * auf 0 gesetzt. Anschließend springt der Cursor wieder in den ersten EditText hinter der 0.*/
+                num1.setText(0 + "");
+                num2.setText(0 + "");
+                num1.requestFocus();
+                num1.setSelection(1);
             } catch (Exception e){
                 System.out.println("Error! Es hat etwas nicht geklappt: " + e.getMessage());
             }
         }
+
     }
 }
