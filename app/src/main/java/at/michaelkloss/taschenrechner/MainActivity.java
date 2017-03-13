@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    //Die Initialisierungen
+    //Die Initialisierungen werden hier  übersichtshalber schon erstellt
     private EditText num1;
     private EditText num2;
     private TextView result;

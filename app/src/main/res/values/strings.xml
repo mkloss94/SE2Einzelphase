@@ -9,4 +9,5 @@
     <string name="edit_titleOutput">--- Output ---</string>
     <string name="numberfield_result">0</string>
     <string name="copyright">Copyright (C) 2017 Michael Kloss</string>
+    <string name="text_result">Das Ergebnis erscheint hier</string>
 </resources>
